@@ -40,35 +40,46 @@
         }
 
         .controls {
-            padding: 25px;
+            padding: 20px 30px;
             background: #f8f9fa;
             border-bottom: 2px solid #e9ecef;
         }
 
-        .search-box {
-            display: flex;
+        .search-filter {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
-        .search-box input, .search-box select {
-            flex: 1;
-            min-width: 200px;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #dee2e6;
             border-radius: 10px;
             font-size: 14px;
             transition: all 0.3s;
         }
 
-        .search-box input:focus, .search-box select:focus {
+        .search-box input:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .filters {
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .filter-buttons {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -76,209 +87,33 @@
 
         .filter-btn {
             padding: 10px 20px;
-            border: 2px solid #667eea;
+            border: 2px solid #dee2e6;
             background: white;
-            color: #667eea;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .data-container {
-            padding: 25px;
-            max-height: calc(100vh - 400px);
-            overflow-y: auto;
-        }
-
-        .data-row {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: all 0.3s;
-        }
-
-        .data-row:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
-
-        .data-row.has-invoice {
-            background: #d4edff;
-            border-color: #90cdf4;
-        }
-
-        .data-row.paid {
-            background: #fef3c7;
-            border-color: #fcd34d;
-        }
-
-        .data-row.shipped {
-            background: #d1fae5;
-            border-color: #6ee7b7;
-        }
-
-        .row-header {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-label {
-            font-size: 11px;
-            color: #6b7280;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            font-size: 15px;
-            color: #1f2937;
-            font-weight: 500;
-        }
-
-        .upload-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .upload-box {
-            border: 2px dashed #d1d5db;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            background: #f9fafb;
-        }
-
-        .upload-box h4 {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: #374151;
-        }
-
-        .upload-box input[type="file"] {
-            display: none;
-        }
-
-        .upload-label {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #667eea;
-            color: white;
             border-radius: 8px;
             cursor: pointer;
             font-size: 13px;
             transition: all 0.3s;
+            font-weight: 500;
         }
 
-        .upload-label:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
+        .filter-btn:hover {
+            background: #f8f9fa;
         }
 
-        .preview {
-            margin-top: 10px;
-            max-width: 100%;
-            max-height: 100px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .preview.show {
-            display: block;
-        }
-
-        .file-name {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 8px;
-            word-break: break-all;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
+        .filter-btn.active {
             background: #667eea;
             color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-success {
-            background: #10b981;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-info {
-            background: #06b6d4;
-            color: white;
-        }
-
-        .btn-info:hover {
-            background: #0891b2;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+            border-color: #667eea;
         }
 
         .loading {
             text-align: center;
             padding: 40px;
-            color: #6b7280;
+            color: #6c757d;
         }
 
         .spinner {
-            border: 3px solid #f3f4f6;
+            border: 3px solid #f3f3f3;
             border-top: 3px solid #667eea;
             border-radius: 50%;
             width: 40px;
@@ -292,22 +127,223 @@
             100% { transform: rotate(360deg); }
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #9ca3af;
+        .orders-container {
+            padding: 20px 30px;
+            max-height: calc(100vh - 400px);
+            overflow-y: auto;
         }
 
-        .empty-state svg {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
+        .order-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .order-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .order-card.has-invoice {
+            background: #e3f2fd;
+            border-color: #90caf9;
+        }
+
+        .order-card.sudah-bayar {
+            background: #fff9c4;
+            border-color: #fff176;
+        }
+
+        .order-card.sudah-kirim {
+            background: #c8e6c9;
+            border-color: #81c784;
+        }
+
+        .order-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .customer-info h3 {
+            font-size: 18px;
+            color: #212529;
+            margin-bottom: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-ready {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .status-bayar {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+
+        .status-kirim {
+            background: #c8e6c9;
+            color: #388e3c;
+        }
+
+        .upload-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .upload-box {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .upload-box label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: #5568d3;
+        }
+
+        .preview {
+            margin-top: 10px;
+            max-width: 100%;
+        }
+
+        .preview img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 6px;
+            border: 2px solid #dee2e6;
+        }
+
+        .preview-name {
+            font-size: 11px;
+            color: #6c757d;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .btn:disabled {
             opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-invoice {
+            background: #2196f3;
+            color: white;
+        }
+
+        .btn-invoice:hover:not(:disabled) {
+            background: #1976d2;
+        }
+
+        .btn-resi {
+            background: #ff9800;
+            color: white;
+        }
+
+        .btn-resi:hover:not(:disabled) {
+            background: #f57c00;
+        }
+
+        .btn-followup {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-followup:hover:not(:disabled) {
+            background: #1fb855;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-size: 16px;
         }
 
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
             }
 
             .header h1 {
@@ -318,54 +354,83 @@
                 padding: 15px;
             }
 
-            .search-box {
-                flex-direction: column;
-            }
-
-            .search-box input, .search-box select {
-                min-width: 100%;
-            }
-
-            .row-header {
-                grid-template-columns: 1fr;
+            .orders-container {
+                padding: 15px;
             }
 
             .upload-section {
                 grid-template-columns: 1fr;
             }
 
-            .actions {
+            .action-buttons {
                 flex-direction: column;
             }
 
             .btn {
-                width: 100%;
-                justify-content: center;
+                min-width: 100%;
             }
+
+            .order-header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #323232;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast.success {
+            background: #4caf50;
+        }
+
+        .toast.error {
+            background: #f44336;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Dashboard Admin Order Management</h1>
-            <p>Kelola pesanan, invoice, dan pengiriman dengan mudah</p>
+            <h1>📊 Dashboard Admin - Order Management</h1>
+            <p>Kelola pesanan dan dokumen dengan mudah</p>
         </div>
 
         <div class="controls">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Cari nama, nomor WA, atau tanggal kirim...">
-                <select id="filterSelect">
-                    <option value="all">Semua Data</option>
-                    <option value="has-invoice">Sudah Ada Invoice</option>
-                    <option value="has-resi">Sudah Ada Resi</option>
-                    <option value="paid">Sudah Bayar</option>
-                    <option value="shipped">Sudah Kirim</option>
-                </select>
+            <div class="search-filter">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Cari berdasarkan nama, nomor WhatsApp, atau tanggal kirim...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="has-invoice">Sudah Ada Invoice</button>
+                <button class="filter-btn" data-filter="has-resi">Sudah Ada Resi</button>
+                <button class="filter-btn" data-filter="sudah-bayar">Sudah Bayar</button>
             </div>
         </div>
 
-        <div class="data-container" id="dataContainer">
+        <div class="orders-container" id="ordersContainer">
             <div class="loading">
                 <div class="spinner"></div>
                 <p>Memuat data...</p>
@@ -374,98 +439,127 @@
     </div>
 
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyAatpemdh_dppWLDRrsDQlJxlp8fE3cdxZ-gFXo1JKUx5awxUWTH_GY13GnQmMhYXOag/exec';
-        let allData = [];
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyAH_Kr4kz03mrPGj0OiopUJ4cYtiZflL9HqNcdDag3xdCL2xq9S8DyBXK8zfCrvw/exec';
+        
+        let allOrders = [];
+        let currentFilter = 'all';
 
         // Load data saat halaman dimuat
-        window.addEventListener('load', loadData);
+        window.addEventListener('DOMContentLoaded', loadOrders);
 
-        async function loadData() {
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', filterOrders);
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                filterOrders();
+            });
+        });
+
+        async function loadOrders() {
             try {
-                const response = await fetch(SCRIPT_URL + '?action=getData');
+                const response = await fetch(`${SCRIPT_URL}?action=getData`);
                 const data = await response.json();
-                allData = data;
-                renderData(allData);
+                
+                if (data.success) {
+                    allOrders = data.data;
+                    displayOrders(allOrders);
+                } else {
+                    showToast('Gagal memuat data: ' + data.message, 'error');
+                }
             } catch (error) {
-                document.getElementById('dataContainer').innerHTML = `
-                    <div class="empty-state">
-                        <p style="color: #ef4444; font-size: 18px;">❌ Gagal memuat data</p>
-                        <p>${error.message}</p>
-                    </div>
-                `;
+                showToast('Error: ' + error.message, 'error');
             }
         }
 
-        function renderData(data) {
-            const container = document.getElementById('dataContainer');
+        function filterOrders() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
-            if (data.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <p style="font-size: 18px;">📭 Tidak ada data</p>
-                        <p>Belum ada pesanan yang tersedia</p>
-                    </div>
-                `;
+            let filtered = allOrders.filter(order => {
+                const matchSearch = 
+                    order.namaCustomer.toLowerCase().includes(searchTerm) ||
+                    order.noWhatsapp.toLowerCase().includes(searchTerm) ||
+                    order.tanggalKirim.toLowerCase().includes(searchTerm);
+                
+                let matchFilter = true;
+                
+                if (currentFilter === 'has-invoice') {
+                    matchFilter = order.linkInvoice && order.linkInvoice.trim() !== '';
+                } else if (currentFilter === 'has-resi') {
+                    matchFilter = order.linkResi && order.linkResi.trim() !== '';
+                } else if (currentFilter === 'sudah-bayar') {
+                    matchFilter = order.status.toLowerCase().includes('bayar');
+                }
+                
+                return matchSearch && matchFilter;
+            });
+            
+            displayOrders(filtered);
+        }
+
+        function displayOrders(orders) {
+            const container = document.getElementById('ordersContainer');
+            
+            if (orders.length === 0) {
+                container.innerHTML = '<div class="no-data">📭 Tidak ada data yang ditemukan</div>';
                 return;
             }
-
-            container.innerHTML = data.map((row, index) => {
-                const hasInvoice = row.linkInvoice ? 'has-invoice' : '';
-                const isPaid = row.status === 'sudah bayar' ? 'paid' : '';
-                const isShipped = row.status === 'sudah kirim' ? 'shipped' : '';
-                const rowClass = isShipped || isPaid || hasInvoice;
-
+            
+            container.innerHTML = orders.map((order, index) => {
+                const hasInvoice = order.linkInvoice && order.linkInvoice.trim() !== '';
+                const hasResi = order.linkResi && order.linkResi.trim() !== '';
+                const statusClass = order.status.toLowerCase().includes('kirim') ? 'sudah-kirim' : 
+                                   order.status.toLowerCase().includes('bayar') ? 'sudah-bayar' :
+                                   hasInvoice ? 'has-invoice' : '';
+                
+                const statusBadgeClass = order.status.toLowerCase().includes('kirim') ? 'status-kirim' : 
+                                        order.status.toLowerCase().includes('bayar') ? 'status-bayar' :
+                                        order.status.toLowerCase().includes('ready') ? 'status-ready' : '';
+                
                 return `
-                    <div class="data-row ${rowClass}" data-index="${index}">
-                        <div class="row-header">
-                            <div class="info-item">
-                                <span class="info-label">Tanggal Order</span>
-                                <span class="info-value">${row.tanggalOrder || '-'}</span>
+                    <div class="order-card ${statusClass}" data-row="${order.row}">
+                        <div class="order-header">
+                            <div class="customer-info">
+                                <h3>${order.namaCustomer}</h3>
+                                <div class="info-row">
+                                    <div class="info-item">📅 Order: ${order.tanggalOrder}</div>
+                                    <div class="info-item">📱 ${order.noWhatsapp}</div>
+                                    <div class="info-item">🚚 Kirim: ${order.tanggalKirim}</div>
+                                </div>
                             </div>
-                            <div class="info-item">
-                                <span class="info-label">Nama Customer</span>
-                                <span class="info-value">${row.namaCustomer || '-'}</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">No WhatsApp</span>
-                                <span class="info-value">${row.noWhatsapp || '-'}</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Status</span>
-                                <span class="info-value">${row.status || '-'}</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Tanggal Kirim</span>
-                                <span class="info-value">${row.tanggalKirim || '-'}</span>
+                            <div>
+                                <span class="status-badge ${statusBadgeClass}">${order.status}</span>
                             </div>
                         </div>
-
+                        
                         <div class="upload-section">
                             <div class="upload-box">
-                                <h4>📄 Upload Invoice</h4>
-                                <input type="file" id="invoice-${index}" accept=".pdf,image/*" onchange="handleFileSelect(${index}, 'invoice')">
-                                <label for="invoice-${index}" class="upload-label">Pilih File</label>
-                                <img class="preview" id="preview-invoice-${index}">
-                                <div class="file-name" id="filename-invoice-${index}"></div>
+                                <label>📄 Invoice</label>
+                                <input type="file" id="invoice-${order.row}" accept=".pdf,image/*" onchange="handleFileSelect(event, ${order.row}, 'invoice')">
+                                <label for="invoice-${order.row}" class="upload-btn">Pilih File</label>
+                                <div class="preview" id="preview-invoice-${order.row}"></div>
                             </div>
-
+                            
                             <div class="upload-box">
-                                <h4>📦 Upload Resi</h4>
-                                <input type="file" id="resi-${index}" accept=".pdf,image/*" onchange="handleFileSelect(${index}, 'resi')">
-                                <label for="resi-${index}" class="upload-label">Pilih File</label>
-                                <img class="preview" id="preview-resi-${index}">
-                                <div class="file-name" id="filename-resi-${index}"></div>
+                                <label>📦 Resi</label>
+                                <input type="file" id="resi-${order.row}" accept=".pdf,image/*" onchange="handleFileSelect(event, ${order.row}, 'resi')">
+                                <label for="resi-${order.row}" class="upload-btn">Pilih File</label>
+                                <div class="preview" id="preview-resi-${order.row}"></div>
                             </div>
                         </div>
-
-                        <div class="actions">
-                            <button class="btn btn-primary" onclick="uploadInvoice(${index})" id="btn-invoice-${index}" disabled>
+                        
+                        <div class="action-buttons">
+                            <button class="btn btn-invoice" onclick="uploadInvoice(${order.row})" id="btn-invoice-${order.row}" disabled>
                                 📤 Input Invoice
                             </button>
-                            <button class="btn btn-success" onclick="uploadResi(${index})" id="btn-resi-${index}" disabled>
-                                📮 Input Resi
+                            <button class="btn btn-resi" onclick="uploadResi(${order.row})" id="btn-resi-${order.row}" disabled>
+                                📤 Input Resi
                             </button>
-                            <button class="btn btn-info" onclick="followUp(${index})" ${!row.linkInvoice ? 'disabled' : ''}>
+                            <button class="btn btn-followup" onclick="followUp(${order.row}, '${order.namaCustomer}', '${order.noWhatsapp}', '${order.tanggalKirim}', '${order.linkInvoice}')" ${!hasInvoice ? 'disabled' : ''}>
                                 💬 Follow Up
                             </button>
                         </div>
@@ -474,254 +568,164 @@
             }).join('');
         }
 
-        function handleFileSelect(index, type) {
-            const input = document.getElementById(`${type}-${index}`);
-            const preview = document.getElementById(`preview-${type}-${index}`);
-            const filename = document.getElementById(`filename-${type}-${index}`);
-            const btn = document.getElementById(`btn-${type}-${index}`);
+        const fileStorage = {};
 
-            if (input.files && input.files[0]) {
-                const file = input.files[0];
-                filename.textContent = file.name;
+        function handleFileSelect(event, row, type) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            if (!fileStorage[row]) fileStorage[row] = {};
+            fileStorage[row][type] = file;
+            
+            const previewDiv = document.getElementById(`preview-${type}-${row}`);
+            const btn = document.getElementById(`btn-${type}-${row}`);
+            
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewDiv.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview">
+                        <div class="preview-name">${file.name}</div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewDiv.innerHTML = `<div class="preview-name">📄 ${file.name}</div>`;
+            }
+            
+            btn.disabled = false;
+        }
 
-                if (file.type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        preview.src = e.target.result;
-                        preview.classList.add('show');
-                    };
-                    reader.readAsDataURL(file);
+        async function uploadInvoice(row) {
+            const file = fileStorage[row]?.invoice;
+            if (!file) {
+                showToast('Pilih file invoice terlebih dahulu!', 'error');
+                return;
+            }
+            
+            const btn = document.getElementById(`btn-invoice-${row}`);
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Mengupload...';
+            
+            try {
+                const base64 = await fileToBase64(file);
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'uploadInvoice',
+                        row: row,
+                        fileName: file.name,
+                        fileData: base64,
+                        mimeType: file.type
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showToast('Invoice berhasil diupload!', 'success');
+                    loadOrders();
                 } else {
-                    preview.classList.remove('show');
-                }
-
-                btn.disabled = false;
-            }
-        }
-
-        async function uploadInvoice(index) {
-            const input = document.getElementById(`invoice-${index}`);
-            const btn = document.getElementById(`btn-invoice-${index}`);
-            
-            if (!input.files || !input.files[0]) {
-                alert('Pilih file terlebih dahulu!');
-                return;
-            }
-
-            btn.disabled = true;
-            btn.textContent = '⏳ Mengupload...';
-
-            try {
-                const file = input.files[0];
-                
-                // Validasi ukuran file (max 10MB)
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('❌ File terlalu besar! Maksimal 10MB');
+                    showToast('Gagal upload: ' + result.message, 'error');
                     btn.disabled = false;
-                    btn.textContent = '📤 Input Invoice';
-                    return;
+                    btn.innerHTML = '📤 Input Invoice';
                 }
-                
-                const reader = new FileReader();
-                
-                reader.onload = async function(e) {
-                    try {
-                        const base64Data = e.target.result.split(',')[1];
-                        
-                        const payload = {
-                            action: 'uploadInvoice',
-                            rowIndex: allData[index].rowIndex,
-                            fileName: file.name,
-                            fileData: base64Data,
-                            mimeType: file.type
-                        };
-
-                        console.log('Mengirim data:', {
-                            action: payload.action,
-                            rowIndex: payload.rowIndex,
-                            fileName: payload.fileName,
-                            fileSize: base64Data.length
-                        });
-
-                        const response = await fetch(SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(payload)
-                        });
-
-                        // Karena mode no-cors, kita tidak bisa membaca response
-                        // Jadi kita tunggu sebentar lalu reload data
-                        setTimeout(() => {
-                            alert('✅ Invoice sedang diupload! Mohon tunggu...');
-                            loadData();
-                            btn.disabled = false;
-                            btn.textContent = '📤 Input Invoice';
-                        }, 2000);
-                        
-                    } catch (error) {
-                        console.error('Error saat upload:', error);
-                        alert('❌ Gagal upload: ' + error.message);
-                        btn.disabled = false;
-                        btn.textContent = '📤 Input Invoice';
-                    }
-                };
-
-                reader.onerror = function(error) {
-                    console.error('Error membaca file:', error);
-                    alert('❌ Gagal membaca file!');
-                    btn.disabled = false;
-                    btn.textContent = '📤 Input Invoice';
-                };
-
-                reader.readAsDataURL(file);
             } catch (error) {
-                console.error('Error:', error);
-                alert('❌ Error: ' + error.message);
+                showToast('Error: ' + error.message, 'error');
                 btn.disabled = false;
-                btn.textContent = '📤 Input Invoice';
+                btn.innerHTML = '📤 Input Invoice';
             }
         }
 
-        async function uploadResi(index) {
-            const input = document.getElementById(`resi-${index}`);
-            const btn = document.getElementById(`btn-resi-${index}`);
-            
-            if (!input.files || !input.files[0]) {
-                alert('Pilih file terlebih dahulu!');
+        async function uploadResi(row) {
+            const file = fileStorage[row]?.resi;
+            if (!file) {
+                showToast('Pilih file resi terlebih dahulu!', 'error');
                 return;
             }
-
+            
+            const btn = document.getElementById(`btn-resi-${row}`);
             btn.disabled = true;
-            btn.textContent = '⏳ Mengupload...';
-
+            btn.innerHTML = '⏳ Mengupload...';
+            
             try {
-                const file = input.files[0];
+                const base64 = await fileToBase64(file);
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'uploadResi',
+                        row: row,
+                        fileName: file.name,
+                        fileData: base64,
+                        mimeType: file.type
+                    })
+                });
                 
-                // Validasi ukuran file (max 10MB)
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('❌ File terlalu besar! Maksimal 10MB');
+                const result = await response.json();
+                
+                if (result.success) {
+                    showToast('Resi berhasil diupload!', 'success');
+                    loadOrders();
+                } else {
+                    showToast('Gagal upload: ' + result.message, 'error');
                     btn.disabled = false;
-                    btn.textContent = '📮 Input Resi';
-                    return;
+                    btn.innerHTML = '📤 Input Resi';
                 }
-                
-                const reader = new FileReader();
-                
-                reader.onload = async function(e) {
-                    try {
-                        const base64Data = e.target.result.split(',')[1];
-                        
-                        const payload = {
-                            action: 'uploadResi',
-                            rowIndex: allData[index].rowIndex,
-                            fileName: file.name,
-                            fileData: base64Data,
-                            mimeType: file.type
-                        };
-
-                        console.log('Mengirim data:', {
-                            action: payload.action,
-                            rowIndex: payload.rowIndex,
-                            fileName: payload.fileName,
-                            fileSize: base64Data.length
-                        });
-
-                        const response = await fetch(SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(payload)
-                        });
-
-                        // Karena mode no-cors, kita tidak bisa membaca response
-                        // Jadi kita tunggu sebentar lalu reload data
-                        setTimeout(() => {
-                            alert('✅ Resi sedang diupload! Mohon tunggu...');
-                            loadData();
-                            btn.disabled = false;
-                            btn.textContent = '📮 Input Resi';
-                        }, 2000);
-                        
-                    } catch (error) {
-                        console.error('Error saat upload:', error);
-                        alert('❌ Gagal upload: ' + error.message);
-                        btn.disabled = false;
-                        btn.textContent = '📮 Input Resi';
-                    }
-                };
-
-                reader.onerror = function(error) {
-                    console.error('Error membaca file:', error);
-                    alert('❌ Gagal membaca file!');
-                    btn.disabled = false;
-                    btn.textContent = '📮 Input Resi';
-                };
-
-                reader.readAsDataURL(file);
             } catch (error) {
-                console.error('Error:', error);
-                alert('❌ Error: ' + error.message);
+                showToast('Error: ' + error.message, 'error');
                 btn.disabled = false;
-                btn.textContent = '📮 Input Resi';
+                btn.innerHTML = '📤 Input Resi';
             }
         }
 
-        function followUp(index) {
-            const row = allData[index];
-            
-            if (!row.linkInvoice) {
-                alert('Invoice belum tersedia!');
+        function followUp(row, nama, whatsapp, tanggalKirim, linkInvoice) {
+            if (!linkInvoice || linkInvoice.trim() === '') {
+                showToast('Invoice belum tersedia!', 'error');
                 return;
             }
-
-            // Konversi nomor WA ke format 62
-            let waNumber = row.noWhatsapp.replace(/\D/g, '');
-            if (waNumber.startsWith('0')) {
-                waNumber = '62' + waNumber.substring(1);
-            } else if (!waNumber.startsWith('62')) {
-                waNumber = '62' + waNumber;
-            }
-
-            const message = `Halo kak ${row.namaCustomer}, berdasarkan tanggal request kirim kakak yaitu tanggal ${row.tanggalKirim}, mohon segera lakukan pembayaran ya kak, agar barangnya bisa segera kita kirim. Berikut invoice kakak yang perlu di bayarkan: ${row.linkInvoice}`;
             
-            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            // Format nomor WhatsApp
+            let formattedNumber = whatsapp.trim();
+            if (formattedNumber.startsWith('0')) {
+                formattedNumber = '62' + formattedNumber.substring(1);
+            } else if (!formattedNumber.startsWith('62')) {
+                formattedNumber = '62' + formattedNumber;
+            }
+            formattedNumber = formattedNumber.replace(/\D/g, '');
+            
+            // Format tanggal
+            const parts = tanggalKirim.split('-');
+            const formattedDate = parts.length === 3 ? `${parts[0]}-${parts[1]}-${parts[2]}` : tanggalKirim;
+            
+            const message = `Halo kak ${nama}, berdasarkan tanggal request kirim kakak yaitu tanggal ${formattedDate}, mohon segera lakukan pembayaran ya kak, agar barangnya bisa segera kita kirim. Berikut invoice kakak yang perlu dibayarkan: ${linkInvoice}`;
+            
+            const waUrl = `https://wa.me/${formattedNumber}?text=${encodeURIComponent(message)}`;
             window.open(waUrl, '_blank');
+            
+            showToast('Membuka WhatsApp...', 'success');
         }
 
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', filterData);
-        document.getElementById('filterSelect').addEventListener('change', filterData);
-
-        function filterData() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filterType = document.getElementById('filterSelect').value;
-
-            let filtered = allData.filter(row => {
-                const matchesSearch = 
-                    row.namaCustomer.toLowerCase().includes(searchTerm) ||
-                    row.noWhatsapp.toLowerCase().includes(searchTerm) ||
-                    row.tanggalKirim.toLowerCase().includes(searchTerm);
-
-                let matchesFilter = true;
-                if (filterType === 'has-invoice') {
-                    matchesFilter = row.linkInvoice !== '';
-                } else if (filterType === 'has-resi') {
-                    matchesFilter = row.linkResi !== '';
-                } else if (filterType === 'paid') {
-                    matchesFilter = row.status === 'sudah bayar';
-                } else if (filterType === 'shipped') {
-                    matchesFilter = row.status === 'sudah kirim';
-                }
-
-                return matchesSearch && matchesFilter;
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const base64 = reader.result.split(',')[1];
+                    resolve(base64);
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
             });
+        }
 
-            renderData(filtered);
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
         }
     </script>
 </body>
