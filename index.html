@@ -466,8 +466,12 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    allOrders = data.data;
-                    displayOrders(allOrders);
+                    allOrders = data.data.sort((a, b) => {
+                        const dateA = new Date(a.tanggalOrder.split('-').reverse().join('-'));
+                        const dateB = new Date(b.tanggalOrder.split('-').reverse().join('-'));
+                        return dateB - dateA; // Descending (terbaru dulu)
+                    });
+            displayOrders(allOrders);
                 } else {
                     showToast('Gagal memuat data: ' + data.message, 'error');
                 }
